@@ -1,0 +1,144 @@
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+/* Card da esquerda */
+.leftCard {
+  width: 40%;
+  min-height: calc(100vh - 32px);
+  background-color: var(--color-panel);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+/* Card da direita */
+.RightCard {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+}
+
+/* Cabeçalho */
+.titleLogin {
+  width: 100%;
+  max-width: 460px;
+  margin-bottom: 24px;
+}
+
+/* Criar conta */
+.goCreate {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+
+  margin-bottom: 80px;
+
+  font-size: 13px;
+}
+
+.goCreate p {
+  color: var(--color-text-muted);
+}
+
+.goCreate a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Subtítulo */
+.titleLogin span {
+  display: block;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  color: var(--color-primary);
+
+  margin-bottom: 10px;
+}
+
+/* Título principal */
+.titleLogin h3 {
+  font-size: 32px;
+  font-weight: 500;
+
+  margin-bottom: 12px;
+}
+
+/* Descrição */
+.titleLogin > p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Inputs e botão */
+.RightCard > div:not(.titleLogin) {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* Mensagem de erro */
+.ErrorMessage {
+  width: 100%;
+  max-width: 460px;
+
+  font-size: 12px;
+  color: #c0392b;
+  line-height: 1.5;
+
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .leftCard {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .RightCard {
+    padding: 40px 20px;
+  }
+
+  .goCreate {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 8px;
+  }
+
+  .leftCard {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .RightCard {
+    padding: 32px 12px;
+  }
+
+  .titleLogin h3 {
+    font-size: 26px;
+  }
+
+  .goCreate {
+    margin-bottom: 36px;
+  }
+}

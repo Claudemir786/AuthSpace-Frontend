@@ -1,0 +1,33 @@
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ícone */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background-color: var(--color-primary);
+  color: white;
+
+  border-radius: 8px;
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Texto da logo */
+.title p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+}

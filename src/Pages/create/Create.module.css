@@ -1,0 +1,149 @@
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  padding: 16px;
+  gap: 0;
+}
+
+/* Lado esquerdo */
+.cardLeft {
+  width: 40%;
+  min-height: calc(100vh - 32px);
+  background-color: var(--color-panel);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+/* Lado direito */
+.cardRight {
+   flex: 1;
+
+  display: grid;
+  grid-template-columns: minmax(0, 460px);
+  grid-template-rows: auto auto;
+
+  justify-content: center;
+  align-content: center;
+
+  padding: 40px;
+  min-width: 0;
+}
+
+/* Cabeçalho do formulário */
+.titleLogin {
+  width: 100%;
+  
+  margin-bottom: 24px;
+}
+
+.goCreate {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 60px;
+  font-size: 13px;
+}
+
+.goCreate p {
+  color: var(--color-text-muted);
+}
+
+.goCreate a {
+  font-weight: 600;
+}
+
+.titleLogin span {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.titleLogin h3 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.titleLogin > p {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Área dos campos */
+.cardRight > div:last-child {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* Texto de validação */
+.cardRight > div:last-child > p {
+  margin: 12px 0;
+  font-size: 12px;
+  color: #c0392b;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .cardLeft {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .cardRight {
+    padding: 40px 20px;
+  }
+
+  .goCreate {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 8px;
+  }
+
+  .cardLeft {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .cardRight {
+    padding: 32px 12px;
+  }
+
+  .titleLogin h3 {
+    font-size: 26px;
+  }
+
+  .goCreate {
+    margin-bottom: 36px;
+  }
+}
+.pass {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+
+  margin-top: -12px;
+  margin-bottom: 16px;
+}
+
+.error {
+  font-size: 12px;
+  color: #c0392b;
+  line-height: 1.5;
+
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
