@@ -5,6 +5,7 @@ import styles from './Create.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import ButtonDefault from '../../Components/ButtonDefault'
 import verificEmailPassword from '../../util/VerificPasswordEmail'
+import { userCreate } from '../../service/UserService'
 
 
 function Create() {
@@ -20,7 +21,7 @@ function Create() {
   const navigate = useNavigate();
 
 
-  const handleCreate = (e:MouseEvent<HTMLButtonElement>)=>{
+  const handleCreate = async(e:MouseEvent<HTMLButtonElement>)=>{
       e.preventDefault();
 
       //verifica se os campos são validos
@@ -37,10 +38,16 @@ function Create() {
 
       try {
 
-        console.log("Usuário criiado com sucesso");
-        alert("usuário criado com sucesso");
-        navigate("/");
+        const create = await userCreate(name,email,password);
+
+        if(create){
+          console.log("Usuário criado com sucesso");
+          alert("usuário criado com sucesso");
+          navigate("/");
         
+        }
+
+      
       } catch (error) {
         console.error("Falha ao cirar usuário: ", error);
         

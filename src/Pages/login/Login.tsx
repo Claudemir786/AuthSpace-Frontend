@@ -5,6 +5,14 @@ import ButtonDefault from "../../Components/ButtonDefault"
 import InputDefault from "../../Components/InputDefault"
 import CardLoginCreate from '../../Components/CardLoginCreate'
 import verificEmailPassword from '../../util/VerificPasswordEmail'
+import { userLogin as UserLogin } from '../../service/UserService'
+import { useContext } from "react";
+import { UserContext } from "../../Context/UserContext";
+
+export type UserLogin = {
+  name:string;
+  id:number;
+}
 
 function Login() {
     
@@ -13,9 +21,19 @@ function Login() {
     const [error,setError] = useState<string>("");
 
     const navigate = useNavigate();
+
+     const context = useContext(UserContext);
+
+        if (!context) {
+            throw new Error("UserContext não encontrado");
+        }
+
+        const{setName, setId} = context;
+
+       
     
 
-    const handleSubmit = (e: MouseEvent<HTMLButtonElement>)=>{
+    const handleSubmit = async(e: MouseEvent<HTMLButtonElement>)=>{
       e.preventDefault()
       try {
 
@@ -23,21 +41,26 @@ function Login() {
        const verifyInputs:boolean = verificEmailPassword(email,password,setError);
 
        if(verifyInputs){
-          console.log("Login Efetuado com sucesso")
-          alert("Login realizado com sucesso");
-          navigate("/dashboard");
-          return
-       }
-       
-       
+          const login:UserLogin = await UserLogin(email,password); 
+
+          if(login.id !=0){
+            setId(login.id);
+            setName(login.name);
+            console.log("Login Efetuado com sucesso")
+            alert("Login realizado com sucesso");
+            navigate("/dashboard");
+          }else{
+            setError("");
+            setError("Usuário inválido ou não cadastrado")
+          }
+         
+       }   
         
       } catch (error) {
         console.error("Não foi possível realizar o login: ", error);
         setError("Email ou senha invalidos");
       }
-    
     }
-
 
   return (
     <div className={styles.container}>   

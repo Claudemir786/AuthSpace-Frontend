@@ -4,6 +4,7 @@ import Create from "./Pages/create/Create"
 import Dashboard from "./Pages/dashboard/Dashboard"
 import { UserContext } from "./Context/UserContext"
 import { useContext } from "react"
+import Config from "./Pages/config/Config"
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   if (!context) {
     throw new Error("UserContext não encontrado");
   }
+  
   const{id} = context;
 
   return (
@@ -22,8 +24,8 @@ function App() {
             <Route path="/" element={<Login/>}/>
             <Route path="/create" element={<Create/>}/>            
             <Route path="/dashboard" element={<Dashboard/> }/>
-              
-            
+            <Route path="/config" element={<Config/>}/>
+                          
           </Routes>
         </BrowserRouter>
     </div>
