@@ -84,7 +84,7 @@ function Dashboard() {
               <div className={styles.email}>
                 <p>Mantenha seu e-mail em dia</p>
                 <p>confira ou altere o endereço que você usa para entrar na sua conta</p>
-                <Link to={"/create"}>Alterar e-mail</Link>
+                <Link to={"/config"}>Alterar e-mail</Link>
               </div>
 
           </div>

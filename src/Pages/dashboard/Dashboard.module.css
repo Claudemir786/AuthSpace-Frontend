@@ -1,0 +1,253 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 32px;
+    background-color: #f5f7f5;
+    color: #263b35;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho da página */
+.header {
+    margin-bottom: 28px;
+}
+
+.header p:first-child {
+    font-size: 11px;
+    font-weight: 700;
+    color: #477567;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.header h3 {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 0 0 8px;
+    color: #263b35;
+}
+
+.header p:last-child {
+    font-size: 14px;
+    color: #7b8983;
+    margin: 0;
+}
+
+/* Card principal */
+.mainCard {
+    background-color: #ffffff;
+    border: 1px solid #e1e8e3;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 28px;
+}
+
+/* Primeira linha do card */
+.rowOne {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e8ede9;
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #f0f2e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.icon p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #356b59;
+    margin: 0;
+}
+
+.userName {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #293d36;
+    margin: 0;
+}
+
+.userName p:last-child {
+    font-size: 12px;
+    color: #89958e;
+    margin: 0;
+}
+
+/* Segunda linha do card */
+.rowTwo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 22px;
+}
+
+.infoEmail,
+.infoDateCreate {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.infoEmail p:first-child,
+.infoDateCreate p:first-child {
+    font-size: 12px;
+    color: #89958e;
+    margin: 0;
+}
+
+.infoEmail p:last-child,
+.infoDateCreate p:last-child {
+    font-size: 13px;
+    font-weight: 500;
+    color: #33463e;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Segundo card */
+.secondCard {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.secondCardTitle {
+    grid-column: 1 / -1;
+    font-size: 18px;
+    font-weight: 500;
+    color: #34483f;
+    margin: 0 0 4px;
+}
+
+/* Cards de ações */
+.alterEmail,
+.goConfig {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px;
+    background-color: #ffffff;
+    border: 1px solid #e1e8e3;
+    border-radius: 12px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.alterEmail:hover,
+.goConfig:hover {
+    border-color: #c3d8cc;
+    transform: translateY(-2px);
+}
+
+/* Ícones */
+.iconEmail {
+    width: 40px;
+    height: 40px;
+    background-color: #eaf2ed;
+    color: #4a7d69;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.iconEmail svg {
+    width: 19px;
+    height: 19px;
+    stroke-width: 1.5;
+}
+
+/* Textos dos cards */
+.email,
+.config {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.email p:first-child,
+.config p:first-child {
+    font-size: 14px;
+    font-weight: 500;
+    color: #33463e;
+    margin: 0;
+}
+
+.email p:nth-child(2),
+.config p:nth-child(2) {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #849189;
+    margin: 0;
+}
+
+.email a,
+.config a {
+    width: fit-content;
+    font-size: 12px;
+    font-weight: 600;
+    color: #3d745f;
+    text-decoration: none;
+    margin-top: 2px;
+}
+
+.email a:hover,
+.config a:hover {
+    color: #244d3d;
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .container {
+        padding: 24px;
+    }
+
+    .secondCard {
+        grid-template-columns: 1fr;
+    }
+
+    .rowTwo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 16px;
+    }
+
+    .header h3 {
+        font-size: 24px;
+    }
+
+    .mainCard {
+        padding: 18px;
+    }
+
+    .rowTwo {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .alterEmail,
+    .goConfig {
+        padding: 18px;
+    }
+}

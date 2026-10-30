@@ -1,3 +1,4 @@
+import styles from './App.module.css'
 import { BrowserRouter,Route, Routes } from "react-router-dom"
 import Login from "./Pages/login/Login"
 import Create from "./Pages/create/Create"
@@ -22,14 +23,20 @@ function App() {
   return (
     <div>
         <BrowserRouter>
-          {id && (<Navbar/>)}  
-          <Routes>
+          <div className={styles.layout}>
+            {id && (<Navbar/>)} 
+          <main className={styles.content}>
+            <Routes>
             <Route path="/" element={<Login/>}/>
             <Route path="/create" element={<Create/>}/>       
             <Route path="/dashboard" element={<Dashboard/> }/>
             <Route path="/config" element={<Config/>}/>
                           
           </Routes>
+          </main> 
+          </div>
+          
+          
         </BrowserRouter>
     </div>
   )

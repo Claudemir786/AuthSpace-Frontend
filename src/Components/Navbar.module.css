@@ -1,0 +1,174 @@
+.container {
+    width: 152px;
+    min-height: 100vh;
+    padding: 16px 14px;
+    background-color: #ffffff;
+    border-right: 1px solid #e3e9e4;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #33463e;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    padding: 0 2px;
+}
+
+/* Navegação */
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 28px;
+}
+
+.navigation a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 10px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #74827a;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navigation a:hover {
+    background-color: #f1f5f1;
+    color: #356b59;
+}
+
+/* Card de suporte */
+.cardHelp {
+    margin-top: auto;
+    margin-bottom: 12px;
+    padding: 12px 10px;
+    background-color: #f5f7f5;
+    border-radius: 10px;
+}
+
+.titleCard {
+    font-size: 12px;
+    font-weight: 600;
+    color: #34483f;
+    margin: 0 0 8px;
+}
+
+.cardHelp p:nth-child(2) {
+    font-size: 10px;
+    line-height: 1.6;
+    color: #849089;
+    margin: 0 0 8px;
+}
+
+.cardHelp a {
+    font-size: 10px;
+    font-weight: 600;
+    color: #477765;
+    text-decoration: none;
+}
+
+.cardHelp a:hover {
+    text-decoration: underline;
+}
+
+/* Sair da conta */
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 6px;
+    border-bottom: 1px solid #e8ede9;
+}
+
+.logout span {
+    display: flex;
+    align-items: center;
+    color: #8a9790;
+}
+
+.logout svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 1.5;
+}
+
+.logout button {
+    border: none;
+    background: transparent;
+    color: #74827a;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.logout button:hover {
+    color: #b45353;
+}
+
+/* Usuário no rodapé */
+.name {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 4px 0;
+}
+
+.name p:first-child {
+    font-size: 11px;
+    font-weight: 600;
+    color: #34483f;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.name p:last-child {
+    font-size: 10px;
+    color: #89958e;
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+    .container {
+        width: 100%;
+        min-height: auto;
+        padding: 12px;
+        border-right: none;
+        border-bottom: 1px solid #e3e9e4;
+    }
+
+    .logo {
+        margin-bottom: 12px;
+    }
+
+    .navigation {
+        flex-direction: row;
+        margin-bottom: 12px;
+    }
+
+    .navigation a {
+        flex: 1;
+        justify-content: center;
+        padding: 10px 6px;
+    }
+
+    .cardHelp {
+        display: none;
+    }
+
+    .logout {
+        display: none;
+    }
+
+    .name {
+        display: none;
+    }
+}
