@@ -5,10 +5,10 @@ const URL = "http://localhost:3000/api/";
 
 
 type User = {
-    id:number;
-    name:string;
-    email:string;
-    token:string;
+    success:string;
+    message:string;
+    user:{id:number,name:string,email:string,token:string}
+
 }
 
 export async function userLogin(email:string,password:string):Promise<UserLogin>{
@@ -27,7 +27,7 @@ export async function userLogin(email:string,password:string):Promise<UserLogin>
 
         console.log("Login realizado com sucesso");
 
-        const user_login:UserLogin ={name:user.name, id:user.id} 
+        const user_login:UserLogin ={name:user.user.name, id:user.user.id} 
         
         return user_login;
         
@@ -59,4 +59,33 @@ export async function userCreate(name:string,email:string,password:string):Promi
         console.error("Erro: ", error);
         return false;        
     }
+}
+
+
+type GetUser = {
+    success:boolean;
+    message:string;
+    user:{id:number,name:string, email:string}
+} 
+
+export async function getUserEmail(id:number):Promise<string>{
+
+    try {
+
+        const res  = await fetch(`${URL}get/user?id=${id}`,{
+            method:"GET",
+
+        } );
+
+        if(!res.ok)throw new Error("Falha ao buscar dados do usuário");
+
+        const user:GetUser = await res.json();
+
+        return user.user.email;
+        
+    } catch (error) {
+        console.error("Error: ", error);
+        return"";
+    }
+
 }

@@ -5,6 +5,7 @@ import Dashboard from "./Pages/dashboard/Dashboard"
 import { UserContext } from "./Context/UserContext"
 import { useContext } from "react"
 import Config from "./Pages/config/Config"
+import Navbar from "./Components/Navbar"
 
 
 function App() {
@@ -16,13 +17,15 @@ function App() {
   }
   
   const{id} = context;
+  console.log("id do usuário: ", id);
 
   return (
     <div>
         <BrowserRouter>
+          {id && (<Navbar/>)}  
           <Routes>
             <Route path="/" element={<Login/>}/>
-            <Route path="/create" element={<Create/>}/>            
+            <Route path="/create" element={<Create/>}/>       
             <Route path="/dashboard" element={<Dashboard/> }/>
             <Route path="/config" element={<Config/>}/>
                           

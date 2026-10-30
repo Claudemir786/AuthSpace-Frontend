@@ -1,5 +1,5 @@
 import styles from './Login.module.css'
-import {useState, type ChangeEvent, type MouseEvent } from "react"
+import {useEffect, useState, type ChangeEvent, type MouseEvent } from "react"
 import { Link, useNavigate } from 'react-router-dom'
 import ButtonDefault from "../../Components/ButtonDefault"
 import InputDefault from "../../Components/InputDefault"
@@ -28,9 +28,11 @@ function Login() {
             throw new Error("UserContext não encontrado");
         }
 
-        const{setName, setId} = context;
+        const{setName, setId, id} = context;
 
-       
+       useEffect(() => {
+          console.log("ID atualizado:", id);
+      }, [id]);
     
 
     const handleSubmit = async(e: MouseEvent<HTMLButtonElement>)=>{
@@ -42,11 +44,13 @@ function Login() {
 
        if(verifyInputs){
           const login:UserLogin = await UserLogin(email,password); 
+          
 
           if(login.id !=0){
             setId(login.id);
             setName(login.name);
             console.log("Login Efetuado com sucesso")
+            
             alert("Login realizado com sucesso");
             navigate("/dashboard");
           }else{
