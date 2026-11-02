@@ -24,13 +24,14 @@ function App() {
     <div>
         <BrowserRouter>
           <div className={styles.layout}>
-            {id && (<Navbar/>)} 
+            {id != null && (<Navbar/>)} 
           <main className={styles.content}>
             <Routes>
             <Route path="/" element={<Login/>}/>
-            <Route path="/create" element={<Create/>}/>       
-            <Route path="/dashboard" element={<Dashboard/> }/>
-            <Route path="/config" element={<Config/>}/>
+            <Route path="/create" element={<Create/>}/>    
+            {/* rotas com condição caso o suário não esteja logado e setado o context  */}  
+            <Route path="/dashboard" element={ id != null ? <Dashboard/> : <Login/> }/>
+            <Route path="/config" element={id !=null ?<Config/> : <Login/>}/>
                           
           </Routes>
           </main> 

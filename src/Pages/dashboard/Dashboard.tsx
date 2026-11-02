@@ -38,7 +38,7 @@ function Dashboard() {
       {/*Cabeçário e titula da página */}
       <div className={styles.header}>
           <p>VISÃO GERAL</p>
-          <h3>Olá {user.name}👋</h3>
+          <h2>Olá {user.name}👋</h2>
           <p>que bom ver você, Aqui está um resumo da sua conta.</p>
       </div>
       

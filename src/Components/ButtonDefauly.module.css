@@ -14,10 +14,6 @@
     transform 0.2s ease;
 }
 
-/* Hover */
-.button:hover {
-  background-color: var(--color-primary-hover) !important;
-}
 
 /* Clique */
 .button:active {

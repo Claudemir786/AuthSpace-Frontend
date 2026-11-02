@@ -89,3 +89,43 @@ export async function getUserEmail(id:number):Promise<string>{
     }
 
 }
+
+export async function deleteUser(id:number):Promise<boolean>{
+    try {
+
+        const res = await fetch(`${URL}delete/user`, {
+            method:'DELETE',
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify({id})
+        })
+
+        if(!res.ok)throw new Error("Não foi possível dletar usuário da base de dados");
+
+        return true;
+        
+    } catch (error) {
+        console.error("Erro: ", error);
+        return false;
+    }
+}
+
+export async function updateEmailUser(id:number,email:string):Promise<boolean>{
+    
+    try {
+
+        const res = await fetch(`${URL}update/email`, {
+            method:"PUT",
+            headers:{"Content-Type": "application/json"},
+            body:JSON.stringify({email,id})
+        });
+
+        if(!res.ok)throw new Error("Falha ao alterar e-mail na base de dados:");
+
+        return true;
+        
+    } catch (error) {
+        console.error("Erro: ", error);
+        return false;
+    }
+
+}
