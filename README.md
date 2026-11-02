@@ -41,7 +41,7 @@ O projeto possui telas de login, registro de usuário, dashboard e configuraçõ
 
 <!-- Adicione aqui o print da tela principal -->
 
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/Dashboard.png)
 
 ### Configurações da conta
 
